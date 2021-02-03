@@ -38,3 +38,9 @@ echo VirtulBox_Log_start
 apt install -y openjdk-11-jdk
 apt install -y virtualbox virtualbox-guest-additions-iso virtualbox-dkms virtualbox-qt
 
+echo Docker_Log_start
+apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(. /etc/os-release; echo "$UBUNTU_CODENAME") stable"
+apt-get update -y
+apt-get install -y docker-ce
