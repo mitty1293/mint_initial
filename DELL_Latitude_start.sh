@@ -44,3 +44,10 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(. /etc/os-release; echo "$UBUNTU_CODENAME") stable"
 apt-get update -y
 apt-get install -y docker-ce
+
+echo "install vscode"
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
+sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+apt-get update -y
+apt-get install -y code
